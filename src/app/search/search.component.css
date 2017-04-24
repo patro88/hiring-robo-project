@@ -1,0 +1,7 @@
+.list-group-item-action:hover {
+  cursor: pointer;
+}
+
+.card-heading {
+  color: #fff;
+}

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="details" *ngIf="robo">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{robo.avatar}}" alt="robo avatar">
+                    <div class="caption">
+                        <h3>{{robo.name}}'s details</h3>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">name: {{robo.name}}</li>
+                                <li class="list-group-item">model: {{robo.model}}</li>
+                                <li class="list-group-item">price: {{robo.price | currency:'USD':true:'1.0-0'}}</li>
+                            </ul>
+                        </div>
+                        <div class="container">
+                            <button data-toggle="collapse" data-target="#reviews">See All Reviews </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="reviews" class="collapse">
+                <h3>{{robo.name}}'s reviews</h3>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let review of roboReviews">
+                        <div class="progress">
+                            <div class="progress-bar " 
+                            [class.bg-success] = "review.rating == 5 "
+                            [class.bg-warning] = "review.rating < 5 && review.rating > 2"
+                            [class.bg-danger] = "review.rating < 3"
+                             role="progressbar" [attr.aria-valuenow]="review.rating" [style.width]="review.rating*20 + '%'"aria-valuemin="0" aria-valuemax="5">{{review.rating}} / 5</div>
+                        </div>
+                        <div>{{review.review}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

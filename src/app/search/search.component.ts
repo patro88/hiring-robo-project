@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {RoboAssistantService} from "../roboAssistant.service";
+import { Router } from '@angular/router';
+import { RoboAssistantService } from "../service/roboAssistant.service";
+import { RoboAssistant } from "../model/roboAssistant";
 
 @Component({
   selector: 'app-search',
@@ -9,14 +11,22 @@ import {RoboAssistantService} from "../roboAssistant.service";
 
 export class SearchComponent {
 
-  constructor(private roboAssistantService: RoboAssistantService) { }
+  constructor(private router: Router,
+              private roboAssistantService: RoboAssistantService) { }
 
-  searchResults: any[]; // You can update the search results array as data is fetched.
+  searchResults: RoboAssistant[]; 
 
-  searchText: string = ""; // You can two-way bind this to the textbox input for searches
+  searchText: string = ""; 
+
+  selectedRobo : any;
 
   sendSearch() {
-    // bind this to the click event in your "search" button. Fetch
+    this.roboAssistantService.getAllRoboAssistants(this.searchText).then((result) => {this.searchResults = result;});
+  }
+
+  onRoboClick(robo: RoboAssistant) {
+    this.selectedRobo = robo;
+    this.router.navigate(['/detail', this.selectedRobo.robo_id]);
   }
 
 }
