@@ -10,6 +10,8 @@ import { DetailComponent } from './detail/detail.component';
 import {RoboAssistantService} from "./service/roboAssistant.service";
 import {RoboReviewsService} from "./service/roboReviews.service";
 import { PageNotFoundComponent } from "./not-found.component";
+import { AppFooterComponent } from "./app-footer.component";
+import { AppHeaderComponent } from "./app-header.component";
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
     DashboardComponent,
     SearchComponent,
     DetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AppFooterComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
