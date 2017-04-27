@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'detail/:id', component: DetailComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
 

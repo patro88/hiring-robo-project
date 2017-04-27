@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             </button>
-            <a class="navbar-brand" href="#">Robo Inc.</a>
+            <a class="navbar-brand" href="">Robo Inc.</a>
         </nav>
         `
 })

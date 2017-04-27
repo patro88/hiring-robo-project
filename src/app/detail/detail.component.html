@@ -1,37 +1,28 @@
-<div class="container">
-    <div class="details" *ngIf="robo">
-        <div class="row justify-content-center">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="{{robo.avatar}}" alt="robo avatar">
-                    <div class="caption">
-                        <h3>{{robo.name}}'s details</h3>
-                        <div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">name: {{robo.name}}</li>
-                                <li class="list-group-item">model: {{robo.model}}</li>
-                                <li class="list-group-item">price: {{robo.price | currency:'USD':true:'1.0-0'}}</li>
-                            </ul>
-                        </div>
-                        <div class="container">
-                            <button data-toggle="collapse" data-target="#reviews">See All Reviews </button>
-                        </div>
-                    </div>
+<div class="conatiner details" *ngIf="robo">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{robo.avatar}}" alt="Avatar">
+                <div class="card-block">
+                    <h4 class="card-title">{{robo.name}}'s details</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>NAME:</strong> &emsp;{{robo.name}}</li>
+                        <li class="list-group-item"><strong>MODEL:</strong> &emsp;{{robo.model}}</li>
+                        <li class="list-group-item"><strong>PRICE:</strong> &emsp;{{robo.price | currency:'USD':true:'1.0-0'}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            <div id="reviews" class="collapse">
-                <h3>{{robo.name}}'s reviews</h3>
+        <div class="col col-md-8">
+            <div class="card collapse" >
+                <h3 class="card-header">{{robo.name}}'s reviews</h3>
                 <ul class="list-group">
                     <li class="list-group-item" *ngFor="let review of roboReviews">
                         <div class="progress">
-                            <div class="progress-bar " 
-                            [class.bg-success] = "review.rating == 5 "
-                            [class.bg-warning] = "review.rating < 5 && review.rating > 2"
-                            [class.bg-danger] = "review.rating < 3"
-                             role="progressbar" [attr.aria-valuenow]="review.rating" [style.width]="review.rating*20 + '%'"aria-valuemin="0" aria-valuemax="5">{{review.rating}} / 5</div>
+                            <div class="progress-bar " [class.bg-success]="review.rating == 5 " [class.bg-warning]="review.rating < 5 && review.rating > 2"
+                                [class.bg-danger]="review.rating < 3" role="progressbar" [attr.aria-valuenow]="review.rating" [style.width]="review.rating*20 + '%'"
+                                aria-valuemin="0" aria-valuemax="5">{{review.rating}} / 5</div>
                         </div>
                         <div>{{review.review}}</div>
                     </li>
@@ -39,4 +30,5 @@
             </div>
         </div>
     </div>
+
 </div>

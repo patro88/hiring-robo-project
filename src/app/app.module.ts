@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpModule, JsonpModule} from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'detail/:id', component: DetailComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -35,6 +35,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     RouterModule.forRoot(routes)
   ],
   providers: [RoboAssistantService, RoboReviewsService],

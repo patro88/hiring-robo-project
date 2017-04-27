@@ -1,7 +1,7 @@
 
 import { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { SearchComponent } from './search.component';
 import { RoboAssistantService } from "../service/roboAssistant.service";
 
@@ -70,8 +70,9 @@ describe('SearchComponent Testing', () => {
     searchTextEl = searchTextDe.nativeElement;
     searchResultsDe = fixture.debugElement.queryAll(By.css('.card li'));
     //searchResultsEl = searchTextDe.nativeElement;
-    describe('when search text is empty' , () => {
-      beforeEach(() => {
+  });
+
+  describe('when search text is empty' , () => {
         it('should return list of all robos ', fakeAsync(() => {
           searchTextEl.click();
           fixture.detectChanges();
@@ -79,8 +80,5 @@ describe('SearchComponent Testing', () => {
           fixture.detectChanges();
           expect(searchResultsDe.length).toEqual(4);
         }));
-      });
     });
-    
-  });
 });

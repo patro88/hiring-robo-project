@@ -26,7 +26,7 @@ export class SearchComponent {
 
   onRoboClick(robo: RoboAssistant) {
     this.selectedRobo = robo;
-    this.router.navigate(['/detail', this.selectedRobo.robo_id]);
+    this.router.navigate(['detail', this.selectedRobo.robo_id]);
   }
 
 }

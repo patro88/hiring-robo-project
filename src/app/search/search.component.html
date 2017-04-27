@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <form class="form-horizontal">
     <div class="input-group">
       <input [(ngModel)]="searchText" name="searchText" placeholder="Search for Robo Assistants" class="form-control">
@@ -9,14 +9,17 @@
   </form>
 </div>
 
-<div class="card card-success" *ngIf="searchResults?.length > 0">
-  <div class="card-heading">Search Results</div>
-  <ul class="list-group">
-    <li *ngFor="let robo of searchResults" class="list-group-item list-group-item-action" (click)=onRoboClick(robo)>
-      {{robo.name}}
-    </li>
-  </ul>
-</div>
-<div *ngIf="searchResults?.length == 0" class="card card-danger">
-  <div class="card-heading">No Robo Assitants found. Please try again!</div>
+<div class="container">
+  <div class="card card-success" *ngIf="searchResults?.length > 0">
+    <div class="card-header">Search Results</div>
+    <ul class="list-group">
+      <li *ngFor="let robo of searchResults" class="list-group-item list-group-item-action" (click)=onRoboClick(robo)>
+        <img src="{{robo.avatar}}" alt="avatar"  width="40" height="30" class="rounded"> 
+        {{robo.name}}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="searchResults?.length == 0" class="card card-danger">
+    <div class="card-header">No Robo Assitants found. Please try again!</div>
+  </div>
 </div>

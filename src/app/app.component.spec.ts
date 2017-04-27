@@ -24,9 +24,11 @@ describe('AppComponent Testing', () => {
     comp = fixture.componentInstance;
     fixture.detectChanges(); 
 
-    it('should define AppComponent', () => {
+    
+  });
+
+  it('should define AppComponent', () => {
       expect(comp).toBeDefined();
       expect(comp.title).toBe('app works!');
     });
-  });
 });

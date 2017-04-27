@@ -14,6 +14,7 @@ export class RoboReviewsService {
     let headers = new Headers();
     headers.append('Content-Type', RoboGlobalConstants.CONTENT_TYPE);
     headers.append('Authorization', RoboGlobalConstants.TOKEN);
+    headers.append('Access-Control-Allow-Origin', '*');
     let options = new RequestOptions({ headers: headers });
 
     return this.http.get( "http://" + RoboGlobalConstants.HOST + "/reviews/" + robo_id , options)
